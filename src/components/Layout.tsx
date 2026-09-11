@@ -1,4 +1,5 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
+import { PAYPAL_ME_URL } from '../lib/paypal'
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>
   `px-3 py-1.5 rounded-full text-sm font-medium transition ${
@@ -44,11 +45,21 @@ export function Layout() {
         <Outlet />
       </main>
       <footer className="border-t border-sage-200/80 bg-sage-900 text-cream-100">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p className="font-display text-lg">The Starred Kitchen</p>
-          <p className="text-sm text-cream-100/70">
-            Static local cookbook · nutrition values are estimates per serving
-          </p>
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div>
+            <p className="font-display text-lg">The Starred Kitchen</p>
+            <p className="mt-1 text-sm text-cream-100/70">
+              Nutrition values are estimates per serving
+            </p>
+          </div>
+          <a
+            href={PAYPAL_ME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-fit items-center justify-center rounded-full bg-terracotta-500 px-5 py-2.5 text-sm font-semibold text-cream-50 shadow-md transition hover:bg-terracotta-400"
+          >
+            Buy with PayPal
+          </a>
         </div>
       </footer>
     </div>

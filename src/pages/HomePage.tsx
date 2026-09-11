@@ -7,6 +7,7 @@ import { useRecipes } from '../hooks/useRecipes'
 import { asset } from '../lib/asset'
 import { CATEGORIES } from '../lib/categories'
 import { MEAL_PHOTO_BY_RECIPE_ID } from '../lib/images'
+import { PAYPAL_ME_URL } from '../lib/paypal'
 
 export function HomePage() {
   const { recipes, loading, error } = useRecipes()
@@ -60,6 +61,14 @@ export function HomePage() {
             >
               Full recipes only
             </Link>
+            <a
+              href={PAYPAL_ME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-terracotta-300/50 bg-terracotta-500/90 px-5 py-2.5 text-sm font-semibold text-cream-50 shadow-md transition hover:bg-terracotta-400"
+            >
+              Buy with PayPal
+            </a>
           </div>
         </div>
       </section>
