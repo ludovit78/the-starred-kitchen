@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+
+  --color-cream-50: #fbf7f0;
+  --color-cream-100: #f5efe3;
+  --color-cream-200: #ebe1cf;
+
+  --color-sage-50: #f3f6f2;
+  --color-sage-100: #e4ebe3;
+  --color-sage-200: #c9d6c7;
+  --color-sage-300: #a7bba5;
+  --color-sage-400: #7f997d;
+  --color-sage-500: #5f7a5d;
+  --color-sage-600: #4a6149;
+  --color-sage-700: #3d4f3f;
+  --color-sage-800: #334136;
+  --color-sage-900: #2a352c;
+  --color-sage-950: #1a221c;
+
+  --color-terracotta-100: #f8e6d8;
+  --color-terracotta-200: #f0c9ad;
+  --color-terracotta-300: #e8a87c;
+  --color-terracotta-400: #de8a55;
+  --color-terracotta-500: #c96b3c;
+  --color-terracotta-600: #b0552f;
+  --color-terracotta-700: #8f4326;
+  --color-terracotta-800: #743720;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-cream-50 font-sans text-sage-900 antialiased;
+    background-image:
+      radial-gradient(ellipse at top, rgba(232, 168, 124, 0.08), transparent 45%),
+      radial-gradient(ellipse at bottom right, rgba(61, 79, 63, 0.06), transparent 40%);
+  }
+
+  ::selection {
+    @apply bg-terracotta-200 text-sage-950;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
