@@ -14,6 +14,10 @@ export interface Recipe {
   title: string
   source: string
   sourceUrl?: string | null
+  /** Named writer / creator for attribution */
+  writer?: string | null
+  /** Short credit line shown in UI */
+  credit?: string | null
   category: string
   servings?: string | null
   time?: string | null

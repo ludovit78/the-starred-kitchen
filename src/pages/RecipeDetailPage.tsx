@@ -7,6 +7,7 @@ import { useFavorites } from '../hooks/useFavorites'
 import { useRecipe } from '../hooks/useRecipes'
 import { categoryLabel } from '../lib/categories'
 import { recipeImage } from '../lib/images'
+import { creditLine, writerForSource } from '../lib/credits'
 
 export function RecipeDetailPage() {
   const { id } = useParams()
@@ -65,7 +66,13 @@ export function RecipeDetailPage() {
                 {recipe.title}
               </h1>
               <p className="mt-3 text-cream-100/85">
-                From{' '}
+                {creditLine({
+                  source: recipe.source,
+                  writer: recipe.writer || writerForSource(recipe.source),
+                })}
+              </p>
+              <p className="mt-1 text-sm text-cream-100/70">
+                Original inspiration:{' '}
                 {recipe.sourceUrl ? (
                   <a
                     href={recipe.sourceUrl}
@@ -74,9 +81,17 @@ export function RecipeDetailPage() {
                     className="font-semibold underline decoration-terracotta-300/70 underline-offset-2 hover:text-cream-50"
                   >
                     {recipe.source}
+                    {(recipe.writer || writerForSource(recipe.source))
+                      ? ` · ${recipe.writer || writerForSource(recipe.source)}`
+                      : ''}
                   </a>
                 ) : (
-                  <span className="font-semibold">{recipe.source}</span>
+                  <span className="font-semibold">
+                    {recipe.source}
+                    {(recipe.writer || writerForSource(recipe.source))
+                      ? ` · ${recipe.writer || writerForSource(recipe.source)}`
+                      : ''}
+                  </span>
                 )}
               </p>
               <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm text-cream-100/75">
